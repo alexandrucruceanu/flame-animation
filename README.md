@@ -1,41 +1,43 @@
-# Candle Animation Comparison Project
+# Flame Animation Project 🕯️
 
-## Project Overview
-This project compares 10 different AI-generated implementations of a CSS candle animation based on the original prompt. It serves as a technical comparison of how various AI models interpret and implement the same animation requirements.
+A comparative study of AI-generated candle flame animations using pure HTML/CSS. Explore implementations from various AI models side-by-side.
 
-### Original Prompt
-```text
-Create a white candle with a single flame using only pure CSS and HTML. The flame should be animated with realistic movement and have a small space between it and the candle. The sparks should also be animated with smooth movements. Ensure the overall design is visually appealing and lifelike.
-```
+## Models Included:
+- ChatGPT
+- GitHub Copilot
+- DeepSeek (Multiple versions)
+- Gemini 1.5 & 2.0
+- Ollama LLMs
+- Perplexity
 
-### Key Features
-- 10 different AI implementations
-- Side-by-side comparison interface
-- Pure CSS animations
-- Responsive dark-mode design
-- Detailed implementation notes
-- Interactive previews
-- Cross-browser compatibility
+## Features:
+✅ Pure HTML/CSS implementations  
+✅ Realistic flame animations  
+✅ Spark effects  
+✅ Responsive design  
+✅ Cross-model comparisons
 
-### Full Implementations List
-| AI Model | Key Characteristics |
-|----------|---------------------|
-| [ChatGPT](chatgpt/index-chatgpt.html) | Basic flame animation with simple sparks |
-| [Copilot VSCode](copilot-vscode/index-copilot-vscode.html) | Complex gradient effects in flame |
-| [DeepSeek R1](deepseek-r1/index-deepseek.html) | Multi-layer flame animation |
-| [DeepSeek Reasoner](deepseek-reasoner-vscode/deepseek-reasoner-vscode.html) | Particle system simulation |
-| [DeepSeek V3](deepseek-v3/index-deepseek-v3.html) | 3D transform effects |
-| [Gemini 1.5](gemini_1.5/index-gemini_1.5.html) | Minimalist design with smooth transitions |
-| [Gemini 2.0](gemini_2.0/index-gemini.html) | Advanced blur effects |
-| [Ollama DeepSeek](ollama-deepseek-r1-1.5b/index-ollama-deepseek-r1-1.5b.html) | Multiple flame layers |
-| [Ollama Llama 3.2](ollama-llama3.2-latest/index-ollama-llama3.2-latest.html) | Interactive mouse effects |
-| [Perplexity](perplexity/index-perplexity.html) | Smooth spark trajectories |
+[Live Demo](https://alexandrucruceanu.github.io/flame-animation/)
 
-### Usage
-1. Clone repository
-2. Open `index-flame-animation.html` in browser
-3. Click any model name to view fullscreen
+---
 
-```bash
-start index-flame-animation.html  # Windows
-```
+# Proyecto de Animación de Llama 🕯️
+
+Estudio comparativo de animaciones de velas generadas por IA usando HTML/CSS puro. Explore implementaciones de varios modelos de IA en paralelo.
+
+## Modelos Incluidos:
+- ChatGPT
+- GitHub Copilot
+- DeepSeek (Múltiples versiones)
+- Gemini 1.5 y 2.0
+- Ollama LLMs
+- Perplexity
+
+## Características:
+✅ Implementaciones en HTML/CSS puro  
+✅ Animaciones realistas de llama  
+✅ Efectos de chispas  
+✅ Diseño responsivo  
+✅ Comparativas entre modelos
+
+[Demo en Vivo](https://alexandrucruceanu.github.io/flame-animation/)

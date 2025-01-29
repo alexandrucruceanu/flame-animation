@@ -1,0 +1,8 @@
+10 different LLMs (ChatGPT, Gemini, DeepSeek et al.) created candle animations using only HTML/CSS. Discover how different models approach the same creative coding challenge!
+
+🔥 Realistic flame physics
+✨ Animated sparks
+🎨 Pure CSS magic
+
+Live demo showing all implementations side-by-side:
+https://alexandrucruceanu.com/work-in-progress/flame-animation/index-flame-animation.html

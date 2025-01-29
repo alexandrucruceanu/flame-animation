@@ -1,0 +1,41 @@
+🔥 AI-Generated Flame Animation Showcase (HTML/CSS Study)
+
+I'm excited to share my comparative analysis of 10+ AI models (ChatGPT, Gemini, DeepSeek, Copilot, etc.) creating candle flame animations using only HTML/CSS. This project reveals fascinating differences in how LLMs approach:
+
+- CSS animation techniques
+- Particle effect simulations
+- Responsive design implementations
+- Creative problem-solving strategies
+
+Key Insights:
+🎯 Model-specific pattern recognition
+⚡ Performance variations in animation smoothness
+🧠 Divergent approaches to physics simulation
+🖌️ Unique artistic interpretations of flame behavior
+
+Live Demo: https://alexandrucruceanu.com/work-in-progress/flame-animation/index-flame-animation.html
+GitHub Repo: https://github.com/alexandrucruceanu/flame-animation
+
+#FrontendDevelopment #AIResearch #CreativeCoding #CSSAnimations #WebDevelopment
+
+---
+
+🔥 Estudio Comparativo de Animaciones de Llama Generadas por IA (HTML/CSS)
+
+Comparto mi análisis de más de 10 modelos de IA (ChatGPT, Gemini, DeepSeek, Copilot, etc.) creando animaciones de velas usando solo HTML/CSS. Este proyecto revela diferencias fascinantes en cómo las LLMs abordan:
+
+- Técnicas de animación CSS
+- Simulaciones de efectos de partículas
+- Implementaciones de diseño responsivo
+- Estrategias creativas de resolución de problemas
+
+Hallazgos Clave:
+🎯 Reconocimiento de patrones específicos por modelo
+⚡ Variaciones en rendimiento de animaciones
+🧠 Enfoques divergentes para simulación física
+🖌️ Interpretaciones artísticas únicas del comportamiento de llamas
+
+Demo en Vivo: https://alexandrucruceanu.com/work-in-progress/flame-animation/index-flame-animation.html
+Repositorio: https://github.com/alexandrucruceanu/flame-animation
+
+#DesarrolloFrontend #InvestigaciónIA #ProgramaciónCreativa #AnimacionesCSS #DesarrolloWeb
