@@ -1,0 +1,73 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    margin: 0;
+}
+
+.candle {
+    position: relative;
+    width: 20px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.flame {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    width: 10px;
+    height: 30px;
+    background-color: orange;
+    border-radius: 50% 50% 0 0;
+    transform: translateX(-50%);
+    animation: flicker 1s infinite alternate;
+}
+
+.spark {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background-color: yellow;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: spark 1s infinite alternate;
+}
+
+.spark:nth-child(2) {
+    top: -50px;
+    animation-delay: 0.2s;
+}
+
+.spark:nth-child(3) {
+    top: -60px;
+    animation-delay: 0.4s;
+}
+
+@keyframes flicker {
+    0% {
+        transform: translateX(-50%) scaleY(1);
+    }
+
+    100% {
+        transform: translateX(-50%) scaleY(1.2);
+    }
+}
+
+@keyframes spark {
+    0% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(-10px);
+        opacity: 0;
+    }
+}

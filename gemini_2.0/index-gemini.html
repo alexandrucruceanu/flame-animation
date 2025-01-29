@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Candle</title>
+    <style>
+        body {
+            background-color: #1e1e1e; /* Dark background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Hide potential spark overflow */
+        }
+
+        .candle {
+            width: 40px;
+            height: 140px;
+            background-color: #f0f0f0; /* Lighter candle for contrast */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .flame {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 35px solid #ffcc00; /* Yellow base */
+            animation: flameAnimation 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite; /* More natural timing */
+            z-index: 2;
+        }
+
+        .flame::before { /* Inner orange flame */
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: -5px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 18px solid #ff9900;
+        }
+
+        .flame::after { /* Small white highlight */
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: -2px;
+            width: 0;
+            height: 0;
+            border-left: 2px solid transparent;
+            border-right: 2px solid transparent;
+            border-bottom: 8px solid #ffffff;
+            opacity: 0.6;
+        }
+
+        .glow { /* Glowing effect around the flame */
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 30px;
+            background: radial-gradient(ellipse at center, rgba(255, 153, 0, 0.5), transparent);
+            border-radius: 50%;
+            opacity: 0.7;
+            z-index: 1; /* Below the flame */
+            animation: glowAnimation 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+        }
+
+        .spark-container {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            z-index: 3; /* Above the flame */
+        }
+
+        .spark {
+            position: absolute;
+            background-color: #ffdd66;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            animation: sparkAnimation 2s linear infinite;
+            opacity: 0;
+        }
+
+        .spark:nth-child(1) { top: 0; left: 20%; animation-delay: 0.2s; }
+        .spark:nth-child(2) { top: 5px; left: 50%; animation-delay: 0.5s; }
+        .spark:nth-child(3) { top: 10px; left: 80%; animation-delay: 0.8s; }
+
+        @keyframes flameAnimation {
+            0% { transform: translateX(-50%) scaleY(1) rotate(0deg); }
+            30% { transform: translateX(-52%) scaleY(1.08) rotate(-3deg); }
+            60% { transform: translateX(-48%) scaleY(1.15) rotate(3deg); }
+            80% { transform: translateX(-51%) scaleY(1.05) rotate(-1deg); }
+            100% { transform: translateX(-50%) scaleY(1) rotate(0deg); }
+        }
+
+        @keyframes glowAnimation {
+            0% { opacity: 0.5; transform: translateX(-50%) scale(1); }
+            50% { opacity: 0.7; transform: translateX(-50%) scale(1.1); }
+            100% { opacity: 0.5; transform: translateX(-50%) scale(1); }
+        }
+
+        @keyframes sparkAnimation {
+            0% { opacity: 0; transform: translateY(0) scale(0.7); }
+            20% { opacity: 1; transform: translateY(-8px) scale(1); }
+            100% { opacity: 0; transform: translateY(-30px) scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+    <div class="candle">
+        <div class="glow"></div>
+        <div class="flame"></div>
+        <div class="spark-container">
+            <div class="spark"></div>
+            <div class="spark"></div>
+            <div class="spark"></div>
+        </div>
+    </div>
+</body>
+</html>

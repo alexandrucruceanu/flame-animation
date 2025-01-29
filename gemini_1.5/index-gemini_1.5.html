@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #222;
+  margin: 0;
+}
+
+.candle {
+  width: 50px;
+  height: 150px;
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+.flame {
+  width: 10px;
+  height: 30px;
+  background-color: #fdd;
+  position: absolute;
+  top: -30px;
+  left: 18px;
+  border-radius: 5px;
+  animation: flicker 0.5s infinite;
+  box-shadow: 0 0 5px rgba(255, 255, 0, 0.5); 
+}
+
+.spark {
+  position: absolute;
+  top: -30px;
+  width: 2px;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: spark 1s infinite;
+}
+
+.spark1 {
+  left: 15px;
+  animation-delay: 0.1s;
+}
+
+.spark2 {
+  left: 20px;
+  animation-delay: 0.3s;
+}
+
+.spark3 {
+  left: 18px;
+  animation-delay: 0.5s;
+}
+
+@keyframes flicker {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(-3px);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-5px);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(-3px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes spark {
+  0% {
+    opacity: 0.8;
+    transform: translateY(-5px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0.8;
+    transform: translateY(-5px);
+  }
+}
+</style>
+</head>
+<body>
+
+  <div class="candle">
+    <div class="flame"></div>
+    <div class="spark spark1"></div>
+    <div class="spark spark2"></div>
+    <div class="spark spark3"></div>
+  </div>
+
+</body>
+</html>

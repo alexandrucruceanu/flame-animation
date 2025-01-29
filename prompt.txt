@@ -1,0 +1,1 @@
+Create a white candle with a single flame using only pure CSS and HTML. The flame should be animated with realistic movement and have a small space between it and the candle. The sparks should also be animated with smooth movements. Ensure the overall design is visually appealing and lifelike.

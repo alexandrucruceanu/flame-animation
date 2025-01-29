@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candle Flame Animation</title>
+    <style>
+        /* Candle container */
+        .candle {
+            position: relative;
+            width: 200px;
+            height: 50px;
+            background-color: #ff9900; /* orange color for candle */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Flame container */
+        .flame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 10px;
+            background-color: #ff9900; /* orange color for flame */
+            border-radius: 50%;
+            animation: flicker 2s infinite;
+        }
+
+        @keyframes flicker {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            25% {
+                opacity: 0.8;
+                transform: scale(0.9);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            75% {
+                opacity: 0.8;
+                transform: scale(0.9);
+            }
+        }
+
+        /* Spark container */
+        .spark {
+            position: absolute;
+            top: calc(50% + 5px); /* add a small gap between flame and candle */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 2px;
+            height: 10px;
+            background-color: #fff; /* white color for spark */
+            opacity: 0.8;
+            animation: move 1s infinite;
+        }
+
+        @keyframes move {
+            100% {
+                left: calc(50% - 5px);
+            }
+        }
+
+        /* Spark explosion container */
+        .spark-explosion {
+            position: absolute;
+            top: calc(50% + 20px); /* add a larger gap for explosion */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 2px;
+            height: 10px;
+            background-color: #fff; /* white color for spark explosion */
+            opacity: 0.8;
+            animation: explode 1s infinite;
+        }
+
+        @keyframes explode {
+            25% {
+                transform: scale(1.5);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            75% {
+                transform: scale(1.5);
+            }
+        }
+
+        /* Spark explosion animation */
+        .spark-explode-explosion {
+            position: absolute;
+            top: calc(50% + 25px); /* add an even larger gap for explosion */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 2px;
+            height: 10px;
+            background-color: #fff; /* white color for spark explosion */
+            opacity: 0.6;
+            animation: explode 1s infinite;
+        }
+
+        @keyframes explode-explosion {
+            25% {
+                transform: scale(2);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            75% {
+                transform: scale(2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="candle">
+        <!-- Spark containers -->
+        <div class="spark" style="animation-delay: 0s"></div>
+        <div class="spark-explosion" style="animation-delay: 200ms"></div>
+        <div class="spark-explosion-explosion" style="animation-delay: 400ms"></div>
+    </div>
+
+    <!-- Additional spark containers -->
+    <script>
+        for (let i = 0; i < 10; i++) {
+            const sparkContainer = document.createElement('div');
+            sparkContainer.classList.add('spark');
+            sparkContainer.style.animationDelay = `${i * 100}ms`;
+            document.querySelector('.candle').appendChild(sparkContainer);
+        }
+    </script>
+
+    <script>
+        // Add some movement to the flame
+        for (let i = 0; i < 10; i++) {
+            const flameElement = document.createElement('div');
+            flameElement.classList.add('flame');
+            flameElement.style.left = `${i * 20}px`;
+            flameElement.innerHTML = '';
+            document.querySelector('.candle').appendChild(flameElement);
+        }
+    </script>
+</body>
+
+</html>

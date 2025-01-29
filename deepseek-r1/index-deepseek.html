@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+:root {
+  --flame-main: #ffaa00;
+  --flame-core: #ff8800;
+  --flame-edge: #ff5500;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #2a2a2a, #1a1a1a);
+}
+
+.candle {
+  position: relative;
+  width: 70px;
+  height: 180px;
+}
+
+.candle-body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+  border-radius: 0 0 35px 35px;
+  box-shadow: 
+    inset 12px 0 24px rgba(0,0,0,0.08),
+    inset -12px 0 24px rgba(0,0,0,0.08),
+    0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Improved flame animation */
+.flame {
+  position: absolute;
+  bottom: 135%;
+  left: 50%;
+  width: 28px;
+  height: 65px;
+  transform: translateX(-50%);
+  animation: sway 3s ease-in-out infinite,
+             pulse 1.5s ease-in-out infinite alternate;
+  filter: blur(2px);
+}
+
+.flame::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 120%;
+  background: linear-gradient(
+    180deg,
+    var(--flame-main) 0%,
+    var(--flame-core) 30%,
+    var(--flame-edge) 70%,
+    transparent 100%
+  );
+  border-radius: 50% 50% 35% 35%;
+  animation: flicker 0.8s ease-in-out infinite;
+}
+
+.flame::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  width: 60%;
+  height: 40%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: glow-core 1.2s ease-in-out infinite alternate;
+}
+
+/* Enhanced sparks */
+.spark-container {
+  position: absolute;
+  bottom: 135%;
+  left: 50%;
+  width: 30px;
+  height: 100px;
+  transform: translateX(-50%);
+}
+
+.spark {
+  position: absolute;
+  background: linear-gradient(45deg, #ffdd00, #ff8800);
+  border-radius: 50%;
+  animation: sparkFloat 2.5s cubic-bezier(0.4,0,0.6,1) infinite;
+  opacity: 0;
+}
+
+@keyframes sway {
+  0%, 100% { transform: translateX(-50%) rotateZ(1.5deg); }
+  50% { transform: translateX(-50%) rotateZ(-1.5deg); }
+}
+
+@keyframes pulse {
+  0% { transform: translateX(-50%) scaleY(0.95); }
+  100% { transform: translateX(-50%) scaleY(1.05); }
+}
+
+@keyframes flicker {
+  0%, 100% { 
+    transform: scale(0.98, 1.02); 
+    opacity: 0.95;
+  }
+  50% { 
+    transform: scale(1.03, 0.97); 
+    opacity: 1;
+  }
+}
+
+@keyframes glow-core {
+  0% { opacity: 0.3; transform: translateX(-50%) scale(0.9); }
+  100% { opacity: 0.6; transform: translateX(-50%) scale(1.1); }
+}
+
+@keyframes sparkFloat {
+  0% {
+    transform: translate(0, 0) scale(0.4);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(
+      calc(-50% + random(200) * 1% - 100%),
+      calc(-250px + random(50) * 1%)
+    ) scale(0.1);
+    opacity: 0;
+  }
+}
+
+/* Randomized spark properties */
+.spark:nth-child(1) { left: 20%; width: 3px; height: 3px; animation-delay: 0.3s; }
+.spark:nth-child(2) { left: 50%; width: 2px; height: 2px; animation-delay: 1.1s; }
+.spark:nth-child(3) { left: 70%; width: 4px; height: 4px; animation-delay: 0.7s; }
+.spark:nth-child(4) { left: 40%; width: 3px; height: 3px; animation-delay: 1.4s; }
+.spark:nth-child(5) { left: 60%; width: 2px; height: 2px; animation-delay: 0.5s; }
+.spark:nth-child(6) { left: 30%; width: 3px; height: 3px; animation-delay: 1.8s; }
+
+/* Melted wax effect */
+.candle::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 120%;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  filter: blur(3px);
+  animation: melt 8s ease-in-out infinite;
+}
+
+@keyframes melt {
+  0%, 100% { transform: translateX(-50%) scaleY(0.9) skewX(2deg); }
+  50% { transform: translateX(-50%) scaleY(1.1) skewX(-2deg); }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="candle">
+      <div class="candle-body"></div>
+      <div class="flame"></div>
+      <div class="spark-container">
+        <div class="spark"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

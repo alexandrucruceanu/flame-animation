@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #1a1a1a;
+            perspective: 1000px;
+        }
+
+        .container {
+            width: 300px;
+            height: 200px;
+            margin: 20px auto;
+        }
+
+        .candle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: white;
+            margin: 10px;
+        }
+
+        .flame {
+            position: relative;
+            animation: rotate 2s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .flame:nth-child(i) {
+            border-bottom: 1px solid rgba(255, 255 - i * 4, 0, 0.3);
+            width: 80 - (i * 16)px;
+            height: 80px;
+            margin-left: -(i * 10)px;
+            position: absolute;
+        }
+
+        .spark {
+            width: 5px;
+            height: 2px;
+            background-color: white;
+            border-radius: 0.5px;
+            animation: spark 4s linear infinite;
+        }
+
+        @keyframes spark {
+            from { top: -1px; left: -1px; }
+            to { top: 3px; left: 20px; }
+        }
+
+        .spark:nth-child(i) {
+            top: (i * 2.5%) + 50px;
+            left: -(i * 7.5%) - 2px;
+        }
+
+        #shadow {
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flame"></div>
+
+        <div class="shadow"></div>
+
+        <div class="candle"></div>
+        
+        <div style="position: absolute;">
+            <span class="spark">R</span> <i>Red</i>
+        </div>
+        <div style="position: absolute;">
+            <span class="spark">B</span> <i>Blue</i>
+        </div>
+        <div style="position: absolute;">
+            <span class="spark">C</span> <i>Cyan</i>
+        </div>
+        <div style="position: absolute;">
+            <span class="spark">Y</span> <i>Yellow</i>
+        </div>
+
+        <div id="shadow"></div>
+    </div>
+
+    <script>
+        // Add any additional logic here if needed
+    </script>
+</body>
+</html>

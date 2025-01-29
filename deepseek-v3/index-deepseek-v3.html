@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Candle with Flame</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #1a1a1a;
+      margin: 0;
+    }
+
+    .candle {
+      position: relative;
+      width: 30px;
+      height: 100px;
+      background-color: #ffffff;
+      border-radius: 5px 5px 0 0;
+      box-shadow: inset 0 -10px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .flame {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 15px;
+      height: 40px;
+      background-color: #ffcc00;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: flicker 2s infinite ease-in-out;
+      box-shadow: 0 0 20px #ffcc00, 0 0 40px #ffcc00, 0 0 60px #ffcc00;
+    }
+
+    .sparks {
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      width: 2px;
+      height: 10px;
+      background-color: #ffcc00;
+      opacity: 0;
+      animation: spark 1.5s infinite ease-in-out;
+    }
+
+    .sparks::before,
+    .sparks::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 10px;
+      background-color: #ffcc00;
+      opacity: 0;
+    }
+
+    .sparks::before {
+      transform: rotate(30deg) translateY(-10px);
+      animation: spark 1.5s infinite ease-in-out 0.5s;
+    }
+
+    .sparks::after {
+      transform: rotate(-30deg) translateY(-10px);
+      animation: spark 1.5s infinite ease-in-out 1s;
+    }
+
+    @keyframes flicker {
+      0%, 100% {
+        transform: translateX(-50%) scale(1);
+      }
+      50% {
+        transform: translateX(-50%) scale(1.05) rotate(2deg);
+      }
+    }
+
+    @keyframes spark {
+      0%, 100% {
+        opacity: 0;
+        transform: translateY(0);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(-20px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="candle">
+    <div class="flame"></div>
+    <div class="sparks"></div>
+  </div>
+</body>
+</html>

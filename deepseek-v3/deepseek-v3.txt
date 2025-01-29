@@ -1,0 +1,113 @@
+Creating a realistic candle with a flame and animated sparks using only HTML and CSS involves using keyframe animations and CSS properties like `box-shadow`, `border-radius`, and `transform`. Below is the code to achieve this:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Candle with Flame</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #1a1a1a;
+      margin: 0;
+    }
+
+    .candle {
+      position: relative;
+      width: 30px;
+      height: 100px;
+      background-color: #ffffff;
+      border-radius: 5px 5px 0 0;
+      box-shadow: inset 0 -10px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .flame {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 15px;
+      height: 40px;
+      background-color: #ffcc00;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: flicker 2s infinite ease-in-out;
+      box-shadow: 0 0 20px #ffcc00, 0 0 40px #ffcc00, 0 0 60px #ffcc00;
+    }
+
+    .sparks {
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      width: 2px;
+      height: 10px;
+      background-color: #ffcc00;
+      opacity: 0;
+      animation: spark 1.5s infinite ease-in-out;
+    }
+
+    .sparks::before,
+    .sparks::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 10px;
+      background-color: #ffcc00;
+      opacity: 0;
+    }
+
+    .sparks::before {
+      transform: rotate(30deg) translateY(-10px);
+      animation: spark 1.5s infinite ease-in-out 0.5s;
+    }
+
+    .sparks::after {
+      transform: rotate(-30deg) translateY(-10px);
+      animation: spark 1.5s infinite ease-in-out 1s;
+    }
+
+    @keyframes flicker {
+      0%, 100% {
+        transform: translateX(-50%) scale(1);
+      }
+      50% {
+        transform: translateX(-50%) scale(1.05) rotate(2deg);
+      }
+    }
+
+    @keyframes spark {
+      0%, 100% {
+        opacity: 0;
+        transform: translateY(0);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(-20px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="candle">
+    <div class="flame"></div>
+    <div class="sparks"></div>
+  </div>
+</body>
+</html>
+```
+
+### Explanation:
+1. **Candle**: The candle is a simple white rectangle with rounded top edges and a subtle shadow to give it depth.
+2. **Flame**: The flame is an oval shape with a yellow color and a glowing effect using `box-shadow`. The `flicker` animation makes it move slightly to simulate a real flame.
+3. **Sparks**: The sparks are small lines that animate upwards and fade out. They are positioned around the flame and animated with a delay to create a smooth, random effect.
+
+### How It Works:
+- The `@keyframes` animations control the flickering of the flame and the movement of the sparks.
+- The `transform` property is used to scale and rotate the flame slightly for a realistic flicker.
+- The `box-shadow` property creates the glowing effect for the flame.
+
+This design is simple yet visually appealing and lifelike. You can further customize the colors, sizes, and animations to suit your needs.

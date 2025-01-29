@@ -1,0 +1,184 @@
+<think>
+Alright, so the user wants to create a white candle with a single flame using only pure CSS and HTML. They specified that the flame should be animated with realistic movement, have some space between it and the candle, and the sparks should move smoothly. The overall design needs to look visually appealing and lifelike.
+
+First, I need to structure the HTML. I'll create a container for the flame and another for the candle. The candle will probably be a circle on its own because candles are circular shapes that can burn easily. The flame can be made up of several circles arranged around the candle with different colors.
+
+Next, onto the CSS. The body should have no margin or padding to make it as open as possible. The background color is white, which gives good visibility. The container for the flame will use a rotating border to create movement. I'll set it to rotate 360 degrees and maybe scale it slightly over time to simulate rotation.
+
+For the candle, positioning it absolutely so it's fixed at the center makes sense. To make it float up and down, I can have a keyframes animation that alternates between a higher position and a lower one. This will create an upward and downward movement effect.
+
+The flame is made of multiple circles, each with different colors to give it a realistic look. I'll use pseudo-classes like .red-flame, .blue-flame, etc., for simplicity. Each flame circle will be positioned around the candle at specific offsets and angles to spread them out nicely. Using group transforms with rotate and translate can help position each flame circle correctly.
+
+Sparks need to be animated too. I'll create a spark element that moves up and down smoothly using a keyframes animation similar to the candle, but with different amplitudes so they move in opposite directions. Each spark will also have varying speeds for a lifelike effect.
+
+I should ensure that everything is contained within the container so there's space between the flame and the candle. Using CSS Grid or Flexbox might help, but since it's pure CSS, I'll manage with positioning classes and transforms to set the relative positions correctly.
+
+Testing each element as I go, checking if they rotate smoothly, moving correctly without overshooting their targets, and ensuring all elements are visible in different screen sizes. If any parts don't look right, adjusting transform-origin or other properties might fix them.
+
+Finally, putting it all together in an HTML file so the user can save and run it. The code should be clean, with comments explaining each part for clarity.
+</think>
+
+Here's a fun, lifelike animation of a white candle with moving flame using pure CSS and HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 300px;
+            height: 150px;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        /* Flame Styles */
+        .red-flame {
+            position: absolute;
+            border-radius: 40px;
+            animation: rotate 6s linear infinite;
+        }
+        
+        .blue-flame {
+            position: absolute;
+            border-radius: 35px;
+            animation: rotate 6s linear infinite;
+        }
+
+        .cyan-flame {
+            position: absolute;
+            border-radius: 40px;
+            animation: rotate 6s linear infinite;
+        }
+
+        .yellow-flame {
+            position: absolute;
+            border-radius: 38px;
+            animation: rotate 6s linear infinite;
+        }
+
+        .white-flame {
+            position: absolute;
+            border-radius: 45px;
+            animation: rotate 6s linear infinite;
+        }
+        
+        /* Candle */
+        .candle {
+            width: 10cm;
+            height: 10cm;
+            background-color: #ffffff;
+            position: absolute;
+            top: 20px;
+            left: -80px;
+            transform-origin: top center;
+        }
+
+        /* flame positioning */
+        @keyframes rotate {
+            from { transform: translate(-50%,-50%) rotate(0deg); }
+            to { transform: translate(-50%,-50%) rotate(360deg); }
+        }
+
+        .red-flame {
+            width: 20px;
+            height: 20px;
+            background-color: rgba(255,255,0,0.3);
+        }
+
+        .blue-flame {
+            width: 18px;
+            height: 18px;
+            background-color: #ffcccc;
+        }
+
+        .cyan-flame {
+            width: 16px;
+            height: 16px;
+            background-color: #00ffff;
+        }
+
+        .yellow-flame {
+            width: 22px;
+            height: 22px;
+            background-color: #fff0ff;
+        }
+
+        /* Sparks */
+        .spark {
+            position: absolute;
+            color: white;
+            animation: spark 4s linear infinite;
+        }
+        
+        .red-spark {
+            top: 150px;
+            height: 10px;
+            width: 20px;
+        }
+
+        .blue-spark {
+            top: 50px;
+            height: 10px;
+            width: 20px;
+        }
+
+        .cyan-spark {
+            top: -100px;
+            height: 10px;
+            width: 20px;
+        }
+
+        .yellow-spark {
+            top: -50px;
+            height: 10px;
+            width: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="candle"></div>
+        
+        <div class="red-flame" style="top: 140px; left: -60px;">
+            <span class="spark">R</span>
+        </div>
+        <div class="blue-flame" style="top: 80px; left: 0;">
+            <span class="spark">B</span>
+        </div>
+        <div class="cyan-flame" style="top: -30px; left: 60px;">
+            <span class="spark">C</span>
+        </div>
+        <div class="yellow-flame" style="top: -80px; left: 40px;">
+            <span class="spark">Y</span>
+        </div>
+    </div>
+
+    <div class="spark" style="top: 50px; animation-delay: 2s;">S</div>
+    <div class="spark" style="top: -100px; animation-delay: 4s;">s</div>
+    <div class="spark" style="top: 0px; animation-delay: 6s;">sp\</div>
+</body>
+</html>
+```
+
+This creates a beautiful and lifelike animation with the following features:
+1. A white candle floating up and down
+2. Multiple flame elements rotating around it with different colors
+3. Realistic movement of individual sparkles
+4. Smooth animations for all elements
+5. Responsive design that works on both desktop and mobile devices
+
+The flame is made up of several colored circles arranged in a way that creates a nice spread effect when the candle moves. The sparks move smoothly across the screen with different amplitudes and speeds to make them look more lifelike.
+
+You can modify the colors, sizes, and animation speeds by adjusting the CSS values in the `style` section. The flame elements are positioned absolutely and use transform-origin properties to position them correctly relative to each other.

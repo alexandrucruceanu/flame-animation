@@ -1,0 +1,122 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #222;
+}
+
+.candle {
+  width: 50px;
+  height: 150px;
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+.flame {
+  width: 10px;
+  height: 30px;
+  background-color: #fdd;
+  position: absolute;
+  top: -30px;
+  left: 18px;
+  border-radius: 5px;
+  animation: flicker 0.5s infinite;
+  box-shadow: 0 0 5px rgba(255, 255, 0, 0.5); 
+}
+
+.spark {
+  position: absolute;
+  top: -30px;
+  width: 2px;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: spark 1s infinite;
+}
+
+.spark1 {
+  left: 15px;
+  animation-delay: 0.1s;
+}
+
+.spark2 {
+  left: 20px;
+  animation-delay: 0.3s;
+}
+
+.spark3 {
+  left: 18px;
+  animation-delay: 0.5s;
+}
+
+@keyframes flicker {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(-3px);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-5px);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(-3px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes spark {
+  0% {
+    opacity: 0.8;
+    transform: translateY(-5px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0.8;
+    transform: translateY(-5px);
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="candle">
+  <div class="flame"></div>
+  <div class="spark spark1"></div>
+  <div class="spark spark2"></div>
+  <div class="spark spark3"></div>
+</div>
+
+</body>
+</html>
+```
+
+**Key Improvements:**
+
+- **More Realistic Flicker:** The `flicker` animation now includes opacity changes, making the flame appear to pulsate more realistically.
+- **Added Shadows:** Subtle shadows are added to both the candle and the flame, enhancing their three-dimensionality.
+- **Cleaner Code:** Minor formatting adjustments for better readability.
+
+This improved version creates a more visually appealing and lifelike candle with a smoother and more natural flame animation. You can further customize this by:
+
+- Adding more sparks and adjusting their positions and animations for a more dynamic effect.
+- Using gradients for the flame and candle to create a more nuanced appearance.
+- Experimenting with different animation timings and easing functions for even smoother movement.
+- Incorporating a slight glow effect around the flame using `box-shadow`.
+
+I hope this enhanced version provides a better visual experience!

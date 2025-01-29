@@ -1,0 +1,164 @@
+To create an interactive flame animation, you can use the following code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candle Flame Animation</title>
+    <style>
+        /* Candle container */
+        .candle {
+            position: relative;
+            width: 200px;
+            height: 50px;
+            background-color: #ff9900; /* orange color for candle */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Flame container */
+        .flame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 10px;
+            background-color: #ff9900; /* orange color for flame */
+            border-radius: 50%;
+            animation: flicker 2s infinite;
+        }
+
+        @keyframes flicker {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            25% {
+                opacity: 0.8;
+                transform: scale(0.9);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            75% {
+                opacity: 0.8;
+                transform: scale(0.9);
+            }
+        }
+
+        /* Spark container */
+        .spark {
+            position: absolute;
+            top: calc(50% + 5px); /* add a small gap between flame and candle */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 2px;
+            height: 10px;
+            background-color: #fff; /* white color for spark */
+            animation: move 2s infinite;
+        }
+
+        @keyframes move {
+            0% {
+                left: calc(50% + 5px);
+            }
+            25% {
+                left: calc(50% - 5px);
+            }
+            50% {
+                left: calc(50% + 5px);
+            }
+            75% {
+                left: calc(50% - 5px);
+            }
+        }
+
+        /* Spark explosion animation */
+        .spark-explode {
+            position: absolute;
+            top: calc(50% + 20px); /* add a larger gap for explosion */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 2px;
+            height: 10px;
+            background-color: #fff; /* white color for spark explosion */
+            animation: explode 0.5s infinite;
+        }
+
+        @keyframes explode {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            25% {
+                opacity: 0.8;
+                transform: scale(1.2);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            75% {
+                opacity: 0.8;
+                transform: scale(1.2);
+            }
+        }
+
+        /* Add some randomization to the spark movement */
+        .spark-move-200ms {
+            animation-delay: calc(200ms + random() * 100)ms;
+        }
+
+        @media screen and (max-width: 500px) {
+            .candle, .flame, .spark, .spark-explode {
+                width: 150px; /* adjust candle size for smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="candle">
+        <!-- Flame container -->
+        <div class="flame flame-1" style="animation-delay: 0ms;"></div>
+        <div class="flame flame-2" style="animation-delay: 150ms;"></div>
+        <div class="flame flame-3" style="animation-delay: 300ms;"></div>
+
+        <!-- Spark container -->
+        <div class="spark spark-1" style="animation-delay: calc(200ms + random() * 100)ms; transform: translateX(-5px);">
+            <div class="spark-explode"></div>
+        </div>
+        <div class="spark spark-2" style="animation-delay: calc(250ms + random() * 100)ms; transform: translateX(-10px);">
+            <div class="spark-explode"></div>
+        </div>
+
+        <!-- Spark container -->
+        <div class="spark spark-3" style="animation-delay: calc(350ms + random() * 100)ms; transform: translateX(-15px);">
+            <div class="spark-explode"></div>
+        </div>
+    </div>
+
+    <script>
+        // Create sparks
+        for (let i = 0; i < 10; i++) {
+            const sparkContainer = document.createElement('div');
+            sparkContainer.classList.add('spark');
+            sparkContainer.style.animationDelay = `calc(200ms + ${i * 50}ms)`;
+            sparkContainer.innerHTML = '';
+            document.querySelector('.candle').appendChild(sparkContainer);
+        }
+    </script>
+</body>
+
+</html>
+```
+
+This code creates an interactive candle flame animation with realistic movement and sparks. The flame is animated using the `@keyframes` rule, which defines the animation timeline for the flame's size and opacity changes. The spark container has multiple div elements to create the spark explosion effect.
+
+The code also adds some randomization to the spark movement by assigning a different animation delay value to each spark element using CSS.
+
+Please note that this is just one way to achieve an interactive candle flame animation, and you may need to modify or adjust the code based on your specific requirements.

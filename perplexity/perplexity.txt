@@ -1,0 +1,138 @@
+Here is a pure HTML and CSS implementation of a white candle with a single animated flame and sparks. The flame flickers realistically, and the sparks move smoothly for a lifelike effect.
+
+### HTML
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Candle</title>
+  <style>
+    /* Base Styles */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #222; /* Dark background for contrast */
+    }
+
+    .candle {
+      position: relative;
+      width: 50px;
+      height: 150px;
+      background: #fff; /* White candle body */
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .wick {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      width: 4px;
+      height: 20px;
+      background: #23161a; /* Dark wick */
+      transform: translateX(-50%);
+    }
+
+    /* Flame */
+    .flame {
+      position: absolute;
+      top: -40px; /* Space between flame and candle */
+      left: 50%;
+      width: 30px;
+      height: 40px;
+      background: radial-gradient(ellipse at bottom, #ff6a00, transparent);
+      border-radius: 50%;
+      transform-origin: bottom center;
+      animation: flicker 1.5s infinite alternate ease-in-out;
+    }
+
+    /* Sparks */
+    .sparks {
+      position: absolute;
+      top: -60px; /* Above the flame */
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      background-color: #ffcc00; /* Spark color */
+      border-radius: 50%;
+      box-shadow:
+        -20px -20px #ffcc00,
+        -10px -30px #ff9900,
+        10px -25px #ffcc00,
+        15px -40px #ff9900,
+        -15px -35px #ffcc00,
+        -5px -45px #ff9900; /* Multiple sparks */
+      animation: spark-movement 2s infinite ease-in-out alternate-reverse;
+    }
+
+    /* Flame Animation */
+    @keyframes flicker {
+      0% {
+        transform: scale(1) translateX(-50%);
+        opacity: 0.9;
+        filter: hue-rotate(0deg);
+      }
+      50% {
+        transform: scale(1.1) translateX(-48%);
+        opacity: 1;
+        filter: hue-rotate(20deg);
+      }
+      100% {
+        transform: scale(1) translateX(-52%);
+        opacity: 0.9;
+        filter: hue-rotate(-20deg);
+      }
+    }
+
+    /* Sparks Animation */
+    @keyframes spark-movement {
+      from {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(-50%) translateY(-20px);
+        opacity: 0.5;
+        filter: blur(2px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="candle">
+    <div class="wick"></div>
+    <div class="flame"></div>
+    <div class="sparks"></div>
+  </div>
+</body>
+</html>
+```
+
+### Explanation
+1. **Candle Body**:
+   - A simple white rectangle with rounded corners (`border-radius`) for the candle.
+2. **Wick**:
+   - A small dark rectangle positioned on top of the candle.
+3. **Flame**:
+   - A `radial-gradient` is used to create a realistic flame appearance.
+   - The `@keyframes flicker` animation simulates the flickering effect by scaling and slightly shifting the flame horizontally while changing its opacity and hue.
+4. **Sparks**:
+   - Multiple small circles are created using `box-shadow` to simulate sparks around the flame.
+   - The `@keyframes spark-movement` animation moves the sparks upwards with fading and blurring for realism.
+
+This design is visually appealing, responsive, and uses only HTML and CSS for a lifelike animated candle effect.
+
+Citations:
+[1] https://mechcoders.com/flamecraft-dominate-candle-flame-animation/
+[2] https://www.youtube.com/watch?v=_2miX4rxkJs
+[3] https://www.youtube.com/watch?v=3HPw58f2hvk
+[4] https://www.geeksforgeeks.org/how-to-create-candle-animation-using-css/
+[5] https://hitokageproduction.com/article/55
+[6] https://stackoverflow.com/questions/13299895/mobile-friendly-ways-to-do-a-candle-flame-animation
+[7] https://www.tutorialspoint.com/how-to-create-candle-animation-effect-using-css
+[8] https://1stwebdesigner.com/make-fire-animation-text-effect-css/

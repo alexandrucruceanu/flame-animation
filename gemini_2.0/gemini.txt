@@ -1,0 +1,124 @@
+You are absolutely right! My apologies. The previous animation, while functional, could be significantly improved for realism.  The flame's movement was too uniform and lacked the characteristic flicker and wavering. The sparks, while moving, didn't quite capture the essence of tiny embers floating upwards.
+
+Here's a revised version with a much more realistic flame and better spark animation:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Candle</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .candle {
+            width: 50px;
+            height: 150px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden; /* Important for containing sparks */
+        }
+
+        .flame {
+            position: absolute;
+            top: -30px; /* Adjusted for better flame height */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent; /* Slightly wider flame base */
+            border-right: 12px solid transparent;
+            border-bottom: 40px solid #ffcc00;
+            animation: flameAnimation 1.2s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite; /* Smoother, more natural timing */
+            z-index: 2;
+        }
+
+        .flame::before {
+            content: '';
+            position: absolute;
+            top: 8px; /* Adjusted for inner flame position */
+            left: -6px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 20px solid #ff9900;
+        }
+
+        .spark-container { /* Container for sparks */
+            position: absolute;
+            top: -25px; /* Start above the flame */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px; /* Adjust width to control spark spread */
+            height: 20px;
+        }
+
+        .spark {
+            position: absolute;
+            background-color: #ffdd66;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            animation: sparkAnimation 1.8s linear infinite;
+            opacity: 0;
+        }
+
+        .spark:nth-child(1) { top: 0; left: 20%; animation-delay: 0.3s; }
+        .spark:nth-child(2) { top: 5px; left: 50%; animation-delay: 0.6s; }
+        .spark:nth-child(3) { top: 10px; left: 80%; animation-delay: 0.9s; }
+        /* ... more sparks as needed */
+
+        @keyframes flameAnimation {
+            0% { transform: translateX(-50%) scaleY(1) rotate(0deg); }
+            25% { transform: translateX(-52%) scaleY(1.05) rotate(-2deg); } /* Slight tilt and stretch */
+            50% { transform: translateX(-48%) scaleY(1.1) rotate(2deg); } /* Opposite tilt and stretch */
+            75% { transform: translateX(-51%) scaleY(1.05) rotate(-1deg); }
+            100% { transform: translateX(-50%) scaleY(1) rotate(0deg); }
+        }
+
+        @keyframes sparkAnimation {
+            0% { opacity: 0; transform: translateY(0) scale(0.8); } /* Start slightly smaller */
+            20% { opacity: 1; transform: translateY(-10px) scale(1); } /* Grow as they rise */
+            100% { opacity: 0; transform: translateY(-40px) scale(1.2); } /* Fade out and slightly enlarge */
+        }
+    </style>
+</head>
+<body>
+    <div class="candle">
+        <div class="flame"></div>
+        <div class="spark-container">
+            <div class="spark"></div>
+            <div class="spark"></div>
+            <div class="spark"></div>
+            </div>
+    </div>
+</body>
+</html>
+```
+
+Key Changes and Explanations:
+
+1.  **Flame Animation:**
+    *   `cubic-bezier` timing function is used for a more natural acceleration and deceleration of the flame's movement.  The values I've chosen create a smoother, less robotic motion.
+    *   Rotation is added to the flame animation, making it look like it's wavering in the breeze. The slight `translateX` adjustments enhance the swaying effect.
+    *   The flame's `top` position and `border` properties are adjusted for a taller, more defined flame.
+
+2.  **Sparks:**
+    *   A `spark-container` is introduced to manage the positioning and spread of the sparks more effectively. This makes it easier to control the overall spark effect.
+    *   The `scale` property is used in the `sparkAnimation` to make the sparks appear to grow slightly as they rise, adding to the realism.  They also start slightly smaller and enlarge as they fade.
+    *   The `top` and `left` positions of the sparks within the container are set using percentages, making it easier to control their distribution.
+
+3.  **Overflow Hidden:** The `overflow: hidden` on the `.candle` element is crucial. It prevents the sparks from spilling outside the candle's boundaries, keeping the animation contained and visually appealing.
+
+With these changes, the flame now has a much more organic, flickering movement, and the sparks behave more like tiny embers drifting upwards.  This version should provide a significantly improved animation.  Remember to add more `.spark` elements within the `spark-container` to increase the number of sparks.
