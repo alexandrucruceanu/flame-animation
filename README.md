@@ -17,7 +17,7 @@ A comparative study of AI-generated candle flame animations using pure HTML/CSS.
 ✅ Responsive design  
 ✅ Cross-model comparisons
 
-[Live Demo](https://alexandrucruceanu.github.io/flame-animation/)
+[Live Demo](https://alexandrucruceanu.com/work-in-progress/flame-animation/index-flame-animation.html)
 
 ---
 
@@ -40,4 +40,4 @@ Estudio comparativo de animaciones de velas generadas por IA usando HTML/CSS pur
 ✅ Diseño responsivo  
 ✅ Comparativas entre modelos
 
-[Demo en Vivo](https://alexandrucruceanu.github.io/flame-animation/)
+[Demo en Vivo](https://alexandrucruceanu.com/work-in-progress/flame-animation/index-flame-animation.html)
