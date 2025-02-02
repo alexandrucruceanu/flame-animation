@@ -41,3 +41,26 @@ Estudio comparativo de animaciones de velas generadas por IA usando HTML/CSS pur
 ✅ Comparativas entre modelos
 
 [Demo en Vivo](https://alexandrucruceanu.com/work-in-progress/flame-animation/index-flame-animation.html)
+
+---
+
+# Proiect de Animație a Flăcării 🕯️
+
+Un studiu comparativ al animațiilor de flacără de lumânare generate de AI folosind HTML/CSS pur. Explorați implementările din diferite modele AI una lângă alta.
+
+## Modele Incluse:
+- ChatGPT
+- GitHub Copilot
+- DeepSeek (Mai multe versiuni)
+- Gemini 1.5 și 2.0
+- Ollama LLMs
+- Perplexity
+
+## Caracteristici:
+✅ Implementări HTML/CSS pure  
+✅ Animații realiste ale flăcării  
+✅ Efecte de scântei  
+✅ Design responsiv  
+✅ Comparații între modele
+
+[Demo Live](https://alexandrucruceanu.com/work-in-progress/flame-animation/index-flame-animation.html)
