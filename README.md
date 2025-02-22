@@ -5,9 +5,9 @@ A comparative study of AI-generated candle flame animations using pure HTML/CSS.
 ## Models Included:
 - ChatGPT
 - GitHub Copilot
-- DeepSeek (Multiple versions)
+- DeepSeek (R1, Reasoner VSCode, V3)
 - Gemini 1.5 & 2.0
-- Ollama LLMs
+- Ollama (DeepSeek R1 1.5b, Llama 3.2 Latest)
 - Perplexity
 
 ## Features:
@@ -19,6 +19,8 @@ A comparative study of AI-generated candle flame animations using pure HTML/CSS.
 
 [Live Demo](https://alexandrucruceanu.com/work-in-progress/flame-animation/index-flame-animation.html)
 
+[GitHub Repository](https://github.com/alexandrucruceanu/flame-animation.git)
+
 ---
 
 # Proyecto de Animación de Llama 🕯️
@@ -28,9 +30,9 @@ Estudio comparativo de animaciones de velas generadas por IA usando HTML/CSS pur
 ## Modelos Incluidos:
 - ChatGPT
 - GitHub Copilot
-- DeepSeek (Múltiples versiones)
+- DeepSeek (R1, Reasoner VSCode, V3)
 - Gemini 1.5 y 2.0
-- Ollama LLMs
+- Ollama (DeepSeek R1 1.5b, Llama 3.2 Latest)
 - Perplexity
 
 ## Características:
@@ -41,3 +43,5 @@ Estudio comparativo de animaciones de velas generadas por IA usando HTML/CSS pur
 ✅ Comparativas entre modelos
 
 [Demo en Vivo](https://alexandrucruceanu.com/work-in-progress/flame-animation/index-flame-animation.html)
+
+[GitHub Repository](https://github.com/alexandrucruceanu/flame-animation.git)
